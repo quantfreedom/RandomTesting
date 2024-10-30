@@ -1,0 +1,42 @@
+﻿<Window x:Class="MainChart.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MainChart"
+        xmlns:vm="clr-namespace:MainChart.ViewModels"
+        xmlns:converters="clr-namespace:MainChart.ValueConverters"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Title="Main Chart Window"
+        Height="720"
+        Width="1080"
+        x:Name="MainChartWindow"
+        MinHeight="{Binding WindowMinimumWidth}"
+        MinWidth="{Binding WindowMinimumHeight}"
+        Template="{DynamicResource ResourceKey=MainWindowBase}"
+        d:DataContext="{d:DesignInstance Type=vm:LoginViewModel, IsDesignTimeCreatable=True}"
+        >
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            ResizeBorderThickness="{Binding ResizeBorderThickness}"
+            CaptionHeight="{Binding TitleHeight}"
+            GlassFrameThickness="0"
+            CornerRadius="0"
+            />
+    </WindowChrome.WindowChrome>
+
+    <Grid Background="{StaticResource BackgroundLightBrush}">
+        <Frame
+            x:Name="MainFrame"
+            Content="{
+                Binding CurrentPage,
+                Converter={converters:ApplicationPageValueConverter}
+                }"
+            />
+    </Grid>
+
+</Window>

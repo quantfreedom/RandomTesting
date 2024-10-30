@@ -1,0 +1,67 @@
+﻿<local:BasePage
+            x:Class="MainChart.Pages.ChatPage"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:local="clr-namespace:MainChart.Pages"
+            xmlns:vm="clr-namespace:MainChart.ViewModels"
+    xmlns:controls="clr-namespace:MainChart.Controls"
+    xmlns:attached="clr-namespace:MainChart.AttachedProperties"
+            x:TypeArguments="vm:ChatMessageListViewModel"
+            mc:Ignorable="d"
+            Title="Chat Page"      
+            d:Background="{StaticResource BackgroundLightBrush}"
+            x:Name="Page"
+            >
+
+    <Grid
+        Height="500"
+        Width="500"
+        Background="Red">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <!--header-->
+        <StackPanel
+            Grid.Row="0"
+            Background="Black"
+            >
+            <TextBlock
+                Text="Chat Page"
+                FontSize="30"
+                FontWeight="Bold"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Grid.Row="0"
+                Foreground="White"
+                />
+        </StackPanel>
+        
+        <!--chat bubble-->
+        <controls:BubbleContent
+            x:Name="thebubblecontent"
+            Grid.Row="1"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Left"
+            attached:AnimateSlideInFromBottomProperty.Value="{Binding AttachementMenuVisible}"
+            />
+        
+        <!--footer-->
+        <StackPanel
+            Grid.Row="2"
+            Background="Black"
+            >
+            <Button
+                Content="Back"
+                Command="{Binding AttachementButtonCommand}"
+                Padding="10"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                />
+        </StackPanel>
+    </Grid>
+</local:BasePage>

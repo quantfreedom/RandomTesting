@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\Font Awesome 6 Brands-Regular-400.otf" />
+    <None Remove="Fonts\Font Awesome 6 Free-Regular-400.otf" />
+    <None Remove="Fonts\Font Awesome 6 Free-Solid-900.otf" />
+    <None Remove="Fonts\Roboto-Black.ttf" />
+    <None Remove="Fonts\Roboto-BlackItalic.ttf" />
+    <None Remove="Fonts\Roboto-Bold.ttf" />
+    <None Remove="Fonts\Roboto-BoldItalic.ttf" />
+    <None Remove="Fonts\Roboto-Italic.ttf" />
+    <None Remove="Fonts\Roboto-Light.ttf" />
+    <None Remove="Fonts\Roboto-LightItalic.ttf" />
+    <None Remove="Fonts\Roboto-Medium.ttf" />
+    <None Remove="Fonts\Roboto-MediumItalic.ttf" />
+    <None Remove="Fonts\Roboto-Regular.ttf" />
+    <None Remove="Fonts\Roboto-Thin.ttf" />
+    <None Remove="Fonts\Roboto-ThinItalic.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ScottPlot.WPF\ScottPlot.WPF.csproj" />
+    <ProjectReference Include="..\ScottPlot5\ScottPlot.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Font Awesome 6 Brands-Regular-400.otf" />
+    <Resource Include="Fonts\Font Awesome 6 Free-Regular-400.otf" />
+    <Resource Include="Fonts\Font Awesome 6 Free-Solid-900.otf" />
+    <Resource Include="Fonts\Roboto-Black.ttf" />
+    <Resource Include="Fonts\Roboto-BlackItalic.ttf" />
+    <Resource Include="Fonts\Roboto-Bold.ttf" />
+    <Resource Include="Fonts\Roboto-BoldItalic.ttf" />
+    <Resource Include="Fonts\Roboto-Italic.ttf" />
+    <Resource Include="Fonts\Roboto-Light.ttf" />
+    <Resource Include="Fonts\Roboto-LightItalic.ttf" />
+    <Resource Include="Fonts\Roboto-Medium.ttf" />
+    <Resource Include="Fonts\Roboto-MediumItalic.ttf" />
+    <Resource Include="Fonts\Roboto-Regular.ttf" />
+    <Resource Include="Fonts\Roboto-Thin.ttf" />
+    <Resource Include="Fonts\Roboto-ThinItalic.ttf" />
+  </ItemGroup>
+
+</Project>

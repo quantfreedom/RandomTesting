@@ -1,0 +1,80 @@
+﻿<local:BasePage
+            x:Class="MainChart.Pages.LoginPage"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:local="clr-namespace:MainChart.Pages"
+            xmlns:vm="clr-namespace:MainChart.ViewModels"
+            x:TypeArguments="vm:LoginViewModel"
+            mc:Ignorable="d"
+            Title="LoginPage"      
+            d:Background="{StaticResource BackgroundLightBrush}"
+            x:Name="Page"
+            >
+
+    <Grid>
+
+        <!--main content scoller-->
+        <ScrollViewer
+            VerticalScrollBarVisibility="Auto"
+            HorizontalScrollBarVisibility="Auto"
+            >
+            <StackPanel
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                TextBlock.TextAlignment="Center"
+                >
+
+                <!--login main content white box-->
+                <Border
+                    Background="White"
+                    CornerRadius="15"
+                    Padding="100 50"
+                    >
+                    <StackPanel>
+                        <!--Sign up-->
+                        <TextBlock
+                            Text="Sign Up"
+                            FontSize="20"
+                            />
+                        <!--sub text-->
+                        <TextBlock 
+                            Text="It's about to get fun"
+                            Margin="0 0 0 20"
+                            />
+
+                        <!--email-->
+                        <TextBox 
+                            Tag="Email"
+                            Style="{StaticResource EmailTextBox}"
+                            />
+
+                        <!--password-->
+                        <PasswordBox
+                            x:Name="PasswordText"
+                            Tag="Password"
+                            Margin="0 0 0 30"
+                            Style="{StaticResource PasswordTextBox}"
+                            />
+
+                        <!--next button-->
+                        <Button 
+                            Content="Next"
+                            HorizontalAlignment="Center"
+                            Style="{StaticResource LoginNext}"
+                            Command="{Binding LoginCommand}"
+                            CommandParameter="{Binding ElementName=Page}"
+                            />
+
+                    </StackPanel>
+                </Border>
+                <Button
+                    Content="I already have an account"
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource LoginAlreadyAccount}"
+                    />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</local:BasePage>
