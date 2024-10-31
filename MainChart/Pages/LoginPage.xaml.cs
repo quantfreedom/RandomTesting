@@ -15,5 +15,7 @@ namespace MainChart.Pages
         }
 
         public SecureString SecurePassword => PasswordText.SecurePassword;
+
+        
     }
 }

@@ -1,5 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ap="clr-namespace:MainChart.AttachedProperties"
+                    xmlns:converters="clr-namespace:MainChart.ValueConverters"
+                    >
 
 
     <Style x:Key="ButtonBase" TargetType="{x:Type Button}">
@@ -82,6 +85,8 @@
         <Setter Property="Padding" Value="50 10" />
         <Setter Property="Margin" Value="0 10" />
 
+        <Setter Property="ap:IsBusyProperty.Value" Value="False"/>
+
         <Setter Property="Template">
 
             <Setter.Value>
@@ -94,14 +99,27 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         SnapsToDevicePixels="true"
                         >
-                        <TextBlock 
-                            Focusable="False" 
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                            Margin="{TemplateBinding Padding}" 
-                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Text="{TemplateBinding Content}"
-                            />
+                        <Grid>
+                            <TextBlock 
+                                Text="{TemplateBinding Content}"
+                                Visibility="{TemplateBinding ap:IsBusyProperty.Value, Converter={converters:VisibleToHiddenConverter}}"
+                                Focusable="False"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                Margin="{TemplateBinding Padding}" 
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                />
+                            <TextBlock 
+                                x:Name="LoadingText"
+                                Visibility="{TemplateBinding ap:IsBusyProperty.Value, Converter={converters:HiddenToVisibleConverter}}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="&#xf110;"
+                                FontFamily="{StaticResource FaSolid}"
+                                FontSize="{StaticResource FontSizeLarge}"
+                                Foreground="{StaticResource ForegroundLightBrush}"
+                                />
+                        </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
                         

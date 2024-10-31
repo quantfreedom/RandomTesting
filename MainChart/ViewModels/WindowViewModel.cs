@@ -16,7 +16,7 @@ public class WindowViewModel:BaseViewModel
 
     #region Public Properties
 
-    public ApplicationPage CurrentPage { get; set; } = ApplicationPage.ChatPage;
+    public ApplicationPage CurrentPage { get; set; } = ApplicationPage.LoginPage;
     public bool Borderless { get { return (mWindow.WindowState == WindowState.Maximized || mDockPosition != WindowDockPosition.Undocked); } }
 
     // TODO: Add a way to set the resize border thickness

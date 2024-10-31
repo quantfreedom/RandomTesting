@@ -1,10 +1,12 @@
-﻿<Page x:Class="MainChart.Pages.MainChartPage"
+﻿<Page x:Class="Testing.Pages.MainChart"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:MainChart.Pages"
+      xmlns:local="clr-namespace:Testing.Pages"
       xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
+      xmlns:controls="clr-namespace:Testing.Controls"
+      xmlns:converters="clr-namespace:Testing.ValueConverters"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainChartPage"
@@ -20,6 +22,7 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+
 
         <Grid 
             Grid.Row="0"
@@ -40,7 +43,9 @@
                     Content="button 1"
                     />
                 <Button
-                    Content="button 2"
+                    Content="Show Modal"
+                    Margin="10 0 0 0"
+                    Command="{Binding ShowModalCommand}"
                     />
 
             </StackPanel>
@@ -80,5 +85,27 @@
             Grid.Column="1"
             x:Name="WpfPlot1"
             />
+
+        <Border
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"
+            Grid.RowSpan="5"
+            Grid.ColumnSpan="5"
+            Background="Transparent"
+            Visibility="{Binding ModalVisible, Converter={converters:HiddenToVisibleConverter}}"
+            
+            >
+            <Border.InputBindings>
+                <MouseBinding 
+                    Command="{Binding ShowModalCommand}"
+                    MouseAction="LeftClick"
+                    />
+            </Border.InputBindings>
+
+            <controls:CustomModalDialog
+                    x:Name="CustomModalDialog"
+                    Margin="40"
+                />
+        </Border>
     </Grid>
 </Page>

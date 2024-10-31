@@ -18,6 +18,7 @@ public class ChatMessageListViewModel:BaseViewModel
 
 
 	#endregion
+
 	#region Constructor
 
 	public ChatMessageListViewModel()
