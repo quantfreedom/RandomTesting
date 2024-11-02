@@ -4,9 +4,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MainChart.Controls.Chat"
+             
+             xmlns:controls="clr-namespace:MainChart.Controls"
+             xmlns:dm="clr-namespace:MainChart.ViewModels.Chat.Design"
+             
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{x:Static dm:ChatListDesignModel.Instance}"
+             >
+    
+    <Grid Background="{StaticResource ForegroundLightBrush}">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Items}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:ChatListItemControl/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
             
     </Grid>
 </UserControl>

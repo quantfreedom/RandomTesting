@@ -42,14 +42,15 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <controls:SideMenuControl
             Grid.Column="0"
             Grid.Row="0"
             >
+            <chatControls:ChatListControl/>
         </controls:SideMenuControl>
         <Frame
             Grid.Column="1"
