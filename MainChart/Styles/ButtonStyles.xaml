@@ -105,24 +105,20 @@
                                 Visibility="{TemplateBinding ap:IsBusyProperty.Value, Converter={converters:VisibleToHiddenConverter}}"
                                 Focusable="False"
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                Margin="{TemplateBinding Padding}" 
+                                Padding="{TemplateBinding Padding}" 
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                 />
                             <TextBlock 
-                                x:Name="LoadingText"
+                                Style="{StaticResource SpinningText}"
                                 Visibility="{TemplateBinding ap:IsBusyProperty.Value, Converter={converters:HiddenToVisibleConverter}}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Text="&#xf110;"
-                                FontFamily="{StaticResource FaSolid}"
-                                FontSize="{StaticResource FontSizeLarge}"
-                                Foreground="{StaticResource ForegroundLightBrush}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                 />
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        
+
                         <EventTrigger RoutedEvent="MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
@@ -135,7 +131,7 @@
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
-                        
+
                         <EventTrigger RoutedEvent="MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
@@ -148,7 +144,7 @@
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
-                        
+
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter 
                                 Property="Background" 
@@ -160,7 +156,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
     </Style>
 
     <!--login already account button-->
@@ -184,7 +179,7 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         SnapsToDevicePixels="true"
                         >
-                        <TextBlock 
+                        <TextBlock
                             Focusable="False" 
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                             Margin="{TemplateBinding Padding}" 
@@ -212,5 +207,96 @@
         </Setter>
 
     </Style>
+
+
+    <!--Icon button-->
+    <Style x:Key="IconButton" BasedOn="{StaticResource ButtonBase}" TargetType="{x:Type Button}">
+
+        <Setter Property="Background" Value="{StaticResource WordBlueBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundLightBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
+        <Setter Property="FontFamily" Value="{StaticResource FaSolid}" />
+        <Setter Property="Padding" Value="30" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Width" Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" />
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border 
+                        x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="true"
+                        >
+                        <Grid>
+                            <Viewbox>
+                                <TextBlock 
+                                    Text="{TemplateBinding Content}"
+                                    Focusable="False"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                    Padding="{TemplateBinding Padding}" 
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    />
+                            </Viewbox>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation
+                                        Storyboard.TargetName="border"
+                                        Storyboard.TargetProperty="Background.Color"
+                                        To="{StaticResource WordLightBlue}"
+                                        Duration="0:0:0.3"
+                                        />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation
+                                        Storyboard.TargetName="border"
+                                        Storyboard.TargetProperty="Background.Color"
+                                        To="{StaticResource WordBlue}"
+                                        Duration="0:0:0.3"
+                                        />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter 
+                                Property="Background" 
+                                TargetName="border" 
+                                Value="{StaticResource ForegroundDarkBrush}"
+                                />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Account Order Trade Header Button-->
+    <Style x:Key="AccountOrderTradeHeaderButton" BasedOn="{StaticResource ButtonBase}" TargetType="{x:Type Button}">
+
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundLightBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="10 0" />
+
+        
+    </Style>
+
 
 </ResourceDictionary>

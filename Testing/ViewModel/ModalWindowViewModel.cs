@@ -9,7 +9,6 @@ public class ModalWindowViewModel:BaseViewModel
     public bool ModalVisible { get; set; } = false;
     public ICommand ShowModalCommand { get; set; }
 
-    public static ModalWindowViewModel Instance => new ModalWindowViewModel();
     public ModalWindowViewModel()
     {
         ShowModalCommand = new RelayCommand(ShowModal);

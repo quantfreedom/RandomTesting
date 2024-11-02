@@ -1,4 +1,5 @@
-﻿using ScottPlot;
+﻿using MainChart.ViewModels;
+using ScottPlot;
 using System.Windows.Controls;
 
 namespace MainChart.Pages
@@ -6,7 +7,7 @@ namespace MainChart.Pages
     /// <summary>
     /// Interaction logic for MainChartPage.xaml
     /// </summary>
-    public partial class MainChartPage:Page
+    public partial class MainChartPage:BasePage<MainChartPageViewModel>
     {
         public MainChartPage()
         {

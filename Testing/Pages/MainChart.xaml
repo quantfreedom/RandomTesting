@@ -86,26 +86,12 @@
             x:Name="WpfPlot1"
             />
 
-        <Border
-            VerticalAlignment="Stretch"
-            HorizontalAlignment="Stretch"
+        <controls:CustomModalDialog
             Grid.RowSpan="5"
             Grid.ColumnSpan="5"
-            Background="Transparent"
+            x:Name="CustomModalDialog"
+            Margin="40"
             Visibility="{Binding ModalVisible, Converter={converters:HiddenToVisibleConverter}}"
-            
-            >
-            <Border.InputBindings>
-                <MouseBinding 
-                    Command="{Binding ShowModalCommand}"
-                    MouseAction="LeftClick"
-                    />
-            </Border.InputBindings>
-
-            <controls:CustomModalDialog
-                    x:Name="CustomModalDialog"
-                    Margin="40"
-                />
-        </Border>
+            />
     </Grid>
 </Page>

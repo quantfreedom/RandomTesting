@@ -16,18 +16,6 @@ public partial class MainChart:Page
         var modalWindow = new ModalWindowViewModel();
         this.DataContext = modalWindow;
         GenerateChart();
-        CustomModalDialog.MouseDown += (s, e) =>
-        {
-            var mousePosition = Mouse.GetPosition(CustomModalDialog);
-            var windowX = CustomModalDialog.ActualWidth + mousePosition.X;
-            var windowY = CustomModalDialog.ActualHeight + mousePosition.Y;
-
-            if (modalWindow.ModalVisible == true)
-            {
-                
-            }
-
-        };
     }
 
     private void GenerateChart()

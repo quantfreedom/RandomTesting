@@ -4,18 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MainChart"
+        
         xmlns:vm="clr-namespace:MainChart.ViewModels"
         xmlns:converters="clr-namespace:MainChart.ValueConverters"
+        xmlns:controls="clr-namespace:MainChart.Controls"
+        xmlns:chatControls="clr-namespace:MainChart.Controls.Chat"
+        
         mc:Ignorable="d"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
         Title="Main Chart Window"
-        Height="720"
         Width="1080"
+        Height="720"
         x:Name="MainChartWindow"
-        MinHeight="{Binding WindowMinimumWidth}"
-        MinWidth="{Binding WindowMinimumHeight}"
+        MinWidth="{Binding WindowMinimumWidth}"
+        MinHeight="{Binding WindowMinimumHeight}"
         Template="{DynamicResource ResourceKey=MainWindowBase}"
         d:DataContext="{d:DesignInstance Type=vm:LoginViewModel, IsDesignTimeCreatable=True}"
         >
@@ -29,13 +33,37 @@
             />
     </WindowChrome.WindowChrome>
 
-    <Grid Background="{StaticResource BackgroundLightBrush}">
+
+    <Grid
+        Background="{StaticResource BackgroundLightBrush}"
+        >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:SideMenuControl
+            Grid.Column="0"
+            Grid.Row="0"
+            >
+        </controls:SideMenuControl>
         <Frame
+            Grid.Column="1"
+            Grid.Row="0"
             x:Name="MainFrame"
             Content="{
                 Binding CurrentPage,
                 Converter={converters:ApplicationPageValueConverter}
                 }"
+            />
+        <controls:AccountOrdersTradesUserControl
+            Grid.Column="0"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
             />
     </Grid>
 

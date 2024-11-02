@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="MainChart.Controls.Chat.ChatListItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MainChart.Controls.Chat"
+             mc:Ignorable="d" 
+             d:DesignHeight="60" d:DesignWidth="300">
+    <Grid Background="{StaticResource ForegroundLightBrush}">
+
+        <Grid.ColumnDefinitions>
+            <!--new message indicator bar-->
+            <ColumnDefinition Width="Auto"/>
+            <!--user image-->
+            <ColumnDefinition Width="Auto"/>
+            <!--main content-->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--new message indicator-->
+        <Border
+            Grid.Column="0"
+            Background="Red"
+            Width="5"
+            />
+
+        <!--user image padding-->
+        <Border
+            Grid.Column="1"
+            Padding="8"
+            >
+            <!--user image background-->
+            <Border
+                Background="{StaticResource WordBlueBrush}"
+                Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                >
+                <!--user image initials-->
+                <TextBlock
+                    Text="LM"
+                    Foreground="White"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="{StaticResource FontSizeAverage}"
+                    />
+
+            </Border>
+
+        </Border>
+
+
+        <!--main content-->
+        <Border
+            Grid.Column="2"
+            Padding="0 0 8 0"
+            >
+            <StackPanel VerticalAlignment="Center">
+                <!--user name-->
+                <TextBlock
+                    Text="Lukas M"
+                    Foreground="{StaticResource WordBlueBrush}"
+                    FontSize="{StaticResource FontSizeAverage}"
+                    TextTrimming="CharacterEllipsis"
+                    />
+                <!--last message-->
+                <TextBlock
+                    Text="Hey, how are you? I bet it will be super fast"
+                    Foreground="{StaticResource ForegroundDarkBrush}"
+                    FontSize="{StaticResource FontSizeSmall}"
+                    TextTrimming="CharacterEllipsis"
+                />
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</UserControl>

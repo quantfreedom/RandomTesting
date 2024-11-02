@@ -35,10 +35,11 @@ public class LoginViewModel:BaseViewModel
 
         await RunCommand(() => this.LoginIsRunning, async () =>
         {
-            await Task.Delay(500);
+            await Task.Delay(1000);
 
             var email = this.Email;
 
+            // never store unsecure password in a variable like this
             var pass = (parameter as IHavePassword).SecurePassword.Unsecure();
 
         });

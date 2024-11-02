@@ -13,14 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MainChart.Controls;
-/// <summary>
-/// Interaction logic for BubbleContent.xaml
-/// </summary>
-public partial class BubbleContent:UserControl
+namespace MainChart.Controls
 {
-    public BubbleContent()
+    /// <summary>
+    /// Interaction logic for AccountOrdersTradesUserControl.xaml
+    /// </summary>
+    public partial class AccountOrdersTradesUserControl : UserControl
     {
-        InitializeComponent();
+        public AccountOrdersTradesUserControl()
+        {
+            InitializeComponent();
+        }
     }
 }

@@ -27,9 +27,9 @@ public class WindowViewModel:BaseViewModel
     public GridLength TitleHeightGridLength { get { return new(TitleHeight + ResizeBorder); } }
 
     public string WindowTitle { get; set; } = " Chart Bitcoin Volume - 10 Mil";
-    public double WindowMinimumWidth { get; set; } = 400;
+    public double WindowMinimumWidth { get; set; } = 800;
 
-    public double WindowMinimumHeight { get; set; } = 400;
+    public double WindowMinimumHeight { get; set; } = 500;
 
     private WindowDockPosition mDockPosition = WindowDockPosition.Undocked;
 
