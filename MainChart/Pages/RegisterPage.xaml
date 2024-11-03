@@ -1,5 +1,5 @@
 ﻿<local:BasePage
-            x:Class="MainChart.Pages.LoginPage"
+            x:Class="MainChart.Pages.RegisterPage"
             x:TypeArguments="vm:LoginViewModel"
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -9,9 +9,9 @@
             xmlns:vm="clr-namespace:MainChart.ViewModels"
             xmlns:ap="clr-namespace:MainChart.AttachedProperties"
             mc:Ignorable="d"
-            Title="LoginPage"      
+            Title="RegisterPage"      
             d:Background="{StaticResource BackgroundLightBrush}"
-            x:Name="TheLoginPage"
+            x:Name="TheRegisterPage"
             >
 
     <Grid>
@@ -36,7 +36,7 @@
                     <StackPanel>
                         <!--Sign up-->
                         <TextBlock
-                            Text="Sign In"
+                            Text="Sign Up"
                             FontSize="20"
                             />
                         <!--sub text-->
@@ -62,7 +62,7 @@
 
                         <!--next button-->
                         <Button 
-                            Content="Next"
+                            Content="Register"
                             HorizontalAlignment="Center"
                             Style="{StaticResource LoginNext}"
                             Command="{Binding LoginCommand}"
@@ -73,10 +73,9 @@
                     </StackPanel>
                 </Border>
                 <Button
-                    Content="Or, create a FREE account..."
+                    Content="Or, I already have an account..."
                     HorizontalAlignment="Center"
                     Style="{StaticResource LoginAlreadyAccount}"
-                    Command="{Binding RegisterCommand}"
                     />
             </StackPanel>
         </ScrollViewer>

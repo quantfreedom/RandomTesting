@@ -5,4 +5,5 @@ public enum ApplicationPage
 	LoginPage,
 	MainChartPage,
 	ChatPage,
+	RegisterPage,
 }

@@ -12,10 +12,16 @@ public class ApplicationPageValueConverter:BaseValueConverter<ApplicationPageVal
         {
             case ApplicationPage.LoginPage:
                 return new LoginPage();
+
             case ApplicationPage.MainChartPage:
                 return new MainChartPage();
+
             case ApplicationPage.ChatPage:
                 return new ChatPage();
+
+            case ApplicationPage.RegisterPage:
+                return new RegisterPage();
+
             default:
                 return new LoginPage();
         }

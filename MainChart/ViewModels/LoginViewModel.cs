@@ -1,5 +1,7 @@
-﻿using MainChart.Security;
+﻿using MainChart.DataModels;
+using MainChart.Security;
 using MainChart.ViewModels.Base;
+using System.Windows;
 using System.Windows.Input;
 
 namespace MainChart.ViewModels;
@@ -17,6 +19,7 @@ public class LoginViewModel:BaseViewModel
 
     #region Commands
     public ICommand LoginCommand { get; set; }
+    public ICommand RegisterCommand { get; set; }
 
     #endregion
 
@@ -25,12 +28,13 @@ public class LoginViewModel:BaseViewModel
     public LoginViewModel()
     {
 
-        LoginCommand = new RelayParameterizedCommand(async (parameter) => await Login(parameter));
+        LoginCommand = new RelayParameterizedCommand(async (parameter) => await LoginAsync(parameter));
+        RegisterCommand = new RelayCommand(async () => await RegisterAsync());
 
     }
     #endregion
 
-    public async Task Login(object parameter)
+    public async Task LoginAsync(object parameter)
     {
 
         await RunCommand(() => this.LoginIsRunning, async () =>
@@ -43,5 +47,11 @@ public class LoginViewModel:BaseViewModel
             var pass = (parameter as IHavePassword).SecurePassword.Unsecure();
 
         });
+    }
+    public async Task RegisterAsync()
+    {
+        // Go to register page
+        ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.RegisterPage;
+        await Task.Delay(1000);
     }
 }
