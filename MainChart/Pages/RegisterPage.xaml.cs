@@ -1,5 +1,5 @@
-﻿using MainChart.ViewModels;
-using MainChart.ViewModels.Base;
+﻿using MainChart.Core.ViewModels;
+using MainChart.Core.ViewModels.Base;
 using System.Security;
 
 namespace MainChart.Pages

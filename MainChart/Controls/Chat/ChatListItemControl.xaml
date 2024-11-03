@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MainChart.Controls.Chat"
              
-             xmlns:dm="clr-namespace:MainChart.ViewModels.Chat.Design"
+             xmlns:dm="clr-namespace:MainChart.Core.ViewModels.Chat.Design;assembly=MainChart.Core"
              xmlns:converters="clr-namespace:MainChart.ValueConverters"
              
              mc:Ignorable="d" 

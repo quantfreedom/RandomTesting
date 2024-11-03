@@ -1,8 +1,7 @@
 ﻿using MainChart.Animation;
-using MainChart.ViewModels.Base;
+using MainChart.Core.ViewModels.Base;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Animation;
 
 namespace MainChart.Pages;
 
@@ -44,21 +43,21 @@ public class BasePage<VM>:Page
         if (this.PageLoadAnimation != PageAnimation.None)
             this.Visibility = Visibility.Collapsed;
 
-        this.Loaded += BasePage_Loaded;
+        this.Loaded += BasePage_LoadedAsync;
         this.ViewModel = new VM();
     }
 
     #endregion
 
     #region Animation Load/Unload
-    private async void BasePage_Loaded(object sender, RoutedEventArgs e)
+    private async void BasePage_LoadedAsync(object sender, RoutedEventArgs e)
     {
 
-        await AnimateIn();
+        await AnimateInAsync();
 
     }
 
-    public async Task AnimateIn()
+    public async Task AnimateInAsync()
     {
         if (this.PageLoadAnimation == PageAnimation.None)
             return;
@@ -67,13 +66,13 @@ public class BasePage<VM>:Page
         {
             case PageAnimation.SlideAndFadeInFromRight:
 
-                await this.SlideAndFadeInFromRight(this.SlideSeconds);
+                await this.SlideAndFadeInFromRightAsync(this.SlideSeconds);
                 break;
 
         }
     }
 
-    public async Task AnimateOut()
+    public async Task AnimateOutAsync()
     {
         if (this.PageUnloadAnimation == PageAnimation.None)
             return;
@@ -82,7 +81,7 @@ public class BasePage<VM>:Page
         {
             case PageAnimation.SlideAndFadeOutToLeft:
 
-                await this.SlideAndFadeOutToLeft(this.SlideSeconds);
+                await this.SlideAndFadeOutToLeftAsync(this.SlideSeconds);
                 break;
 
         }

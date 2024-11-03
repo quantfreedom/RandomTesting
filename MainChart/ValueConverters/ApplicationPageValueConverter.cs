@@ -1,4 +1,4 @@
-﻿using MainChart.DataModels;
+﻿using MainChart.Core.DataModels;
 using MainChart.Pages;
 using System.Globalization;
 

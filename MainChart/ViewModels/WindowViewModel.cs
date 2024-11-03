@@ -1,6 +1,6 @@
-﻿using MainChart.DataModels;
+﻿using MainChart.Core.DataModels;
 using MainChart.Resizer;
-using MainChart.ViewModels.Base;
+using MainChart.Core.ViewModels.Base;
 using System.Windows;
 using System.Windows.Input;
 
@@ -15,8 +15,6 @@ public class WindowViewModel:BaseViewModel
     #endregion
 
     #region Public Properties
-
-    public ApplicationPage CurrentPage { get; set; } = ApplicationPage.LoginPage;
     public bool Borderless { get { return (mWindow.WindowState == WindowState.Maximized || mDockPosition != WindowDockPosition.Undocked); } }
 
     // TODO: Add a way to set the resize border thickness

@@ -1,6 +1,4 @@
-﻿using MainChart.ViewModels;
-using MainChart.ViewModels.Base;
-using System.Security;
+﻿using MainChart.Core.ViewModels;
 
 namespace MainChart.Pages;
 public partial class ChatPage:BasePage<LoginViewModel>

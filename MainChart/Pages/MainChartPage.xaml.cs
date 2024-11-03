@@ -1,6 +1,5 @@
-﻿using MainChart.ViewModels;
+﻿using MainChart.Core.ViewModels;
 using ScottPlot;
-using System.Windows.Controls;
 
 namespace MainChart.Pages
 {

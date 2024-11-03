@@ -31,6 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MainChart.Core\MainChart.Core.csproj" />
     <ProjectReference Include="..\ScottPlot.WPF\ScottPlot.WPF.csproj" />
     <ProjectReference Include="..\ScottPlot5\ScottPlot.csproj" />
   </ItemGroup>

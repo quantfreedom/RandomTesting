@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MainChart.Controls.Chat"
              
              xmlns:controls="clr-namespace:MainChart.Controls"
-             xmlns:dm="clr-namespace:MainChart.ViewModels.Chat.Design"
+             xmlns:dm="clr-namespace:MainChart.Core.ViewModels.Chat.Design;assembly=MainChart.Core"
              
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
